@@ -1,0 +1,172 @@
+.contact-page {
+  padding-bottom: var(--space-8);
+}
+
+/* ── Hero ─────────────────────────────────────────────── */
+.contact-hero {
+  padding-top: var(--space-7);
+  padding-bottom: var(--space-6);
+  max-width: 580px;
+}
+.contact-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-3);
+}
+.contact-hero h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-3);
+}
+.contact-lead {
+  color: var(--ink-soft);
+  line-height: 1.65;
+  font-size: 0.97rem;
+}
+
+/* ── Two-column body ──────────────────────────────────── */
+.contact-body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-6);
+  align-items: start;
+  margin-bottom: var(--space-7);
+}
+@media (max-width: 760px) {
+  .contact-body { grid-template-columns: 1fr; }
+}
+
+/* ── Form ─────────────────────────────────────────────── */
+.contact-form .btn-primary {
+  margin-top: var(--space-2);
+  padding: 11px 28px;
+}
+
+/* ── Success state ────────────────────────────────────── */
+.contact-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-7) var(--space-5);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.contact-success-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--accent-soft);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  margin-bottom: var(--space-4);
+}
+.contact-success-icon svg { width: 24px; height: 24px; }
+.contact-success h3 { margin-bottom: var(--space-2); }
+.contact-success p { color: var(--ink-soft); font-size: 0.9rem; }
+
+/* ── Info sidebar ─────────────────────────────────────── */
+.contact-info-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+.contact-info-card h3 {
+  font-size: 1rem;
+  margin-bottom: var(--space-4);
+}
+.contact-info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.contact-info-list li {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+.contact-info-icon {
+  font-size: 1rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+.contact-info-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-bottom: 2px;
+}
+.contact-info-list a,
+.contact-info-list span {
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+.contact-info-list a:hover { color: var(--accent); }
+
+/* ── FAQ ──────────────────────────────────────────────── */
+.contact-faq {
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-6);
+}
+.contact-faq h2 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-5);
+}
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item:last-child { border-bottom: none; }
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--surface);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  border: none;
+}
+.faq-question:hover { background: var(--surface-sunken); }
+.faq-item.open .faq-question { color: var(--accent-ink); }
+
+.faq-chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  color: var(--ink-soft);
+}
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+.faq-answer {
+  padding: 0 var(--space-5) var(--space-4);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  background: var(--surface);
+}

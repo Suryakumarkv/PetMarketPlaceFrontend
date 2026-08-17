@@ -1,0 +1,230 @@
+/* ── Page layout ─────────────────────────────────────── */
+.browse-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-6);
+  align-items: start;
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-8);
+}
+
+@media (max-width: 720px) {
+  .browse-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Filters panel ───────────────────────────────────── */
+.filters-panel {
+  position: sticky;
+  top: 80px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.filters-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filters-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.filters-clear {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.filters-clear:hover { text-decoration: underline; }
+
+/* ── Each filter group ───────────────────────────────── */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--line);
+}
+
+.filter-group-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-group-value {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-ink);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ── Species / radius chips ──────────────────────────── */
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.filter-chip {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--bg);
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s, color 0.1s;
+}
+.filter-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+.filter-chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* ── Breed text input ────────────────────────────────── */
+.breed-search {
+  position: relative;
+}
+
+.breed-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filter-text-input {
+  width: 100%;
+  padding: 8px 28px 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font-size: 0.83rem;
+  color: var(--ink);
+  outline: none;
+}
+.filter-text-input:focus { border-color: var(--accent); }
+
+.input-clear {
+  position: absolute;
+  right: 8px;
+  font-size: 0.65rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 2px;
+  line-height: 1;
+}
+.input-clear:hover { color: var(--ink); }
+
+.breed-suggestions {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+  z-index: 20;
+}
+.breed-suggestions li {
+  padding: 7px 12px;
+  font-size: 0.83rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+.breed-suggestions li:hover {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+/* ── Location row ────────────────────────────────────── */
+.filter-location-wrap {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+.filter-location-wrap .loc-wrap {
+  flex: 1;
+  min-width: 0;
+}
+.filter-location-wrap .loc-wrap input {
+  width: 100%;
+  padding: 8px 28px 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font-size: 0.83rem;
+}
+.filter-location-wrap .loc-wrap input:focus { border-color: var(--accent); }
+.filter-location-wrap .loc-dropdown { border-radius: var(--radius-sm); }
+
+.locate-btn {
+  flex-shrink: 0;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font-size: 0.9rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.locate-btn.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+/* ── Results area ────────────────────────────────────── */
+.browse-results-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.browse-results-head h1 {
+  font-size: 1.5rem;
+}
+
+.browse-count {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── Pet grid ────────────────────────────────────────── */
+.pet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+  align-items: stretch;
+}

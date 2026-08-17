@@ -1,0 +1,193 @@
+.svc-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.svc-tabs {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+.svc-tab {
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--surface);
+}
+.svc-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ── View toggle ────────────────────────────────────────────────────────── */
+.svc-view-toggle {
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.svc-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.svc-toggle-btn + .svc-toggle-btn {
+  border-left: 1px solid var(--line);
+}
+.svc-toggle-btn:hover:not(.active) {
+  background: var(--surface-sunken);
+  color: var(--ink);
+}
+.svc-toggle-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ── Map ────────────────────────────────────────────────────────────────── */
+.svc-map-wrapper {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.svc-map-container {
+  width: 100%;
+  height: 520px;
+}
+
+/* "You are here" dot */
+.svc-map-you {
+  width: 14px;
+  height: 14px;
+  background: #3b82f6;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* ── Distance slider (inline in toolbar) ───────────────────────────────── */
+.svc-slider-inline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.svc-slider {
+  width: 120px;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--line);
+  outline: none;
+  cursor: pointer;
+  accent-color: var(--accent);
+}
+.svc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+.svc-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+.svc-slider:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.svc-slider-value {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent-ink);
+  min-width: 44px;
+  text-align: right;
+}
+
+/* ── Type pill ──────────────────────────────────────────────────────────── */
+.svc-type-pill {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-bottom: 3px;
+}
+.svc-type-vet      { background: #e7efe8; color: #1E3A29; }
+.svc-type-petcare  { background: #fbeedd; color: #7a4a10; }
+.svc-type-pharmacy { background: #e8eaf6; color: #3a3a9a; }
+.svc-type-other    { background: var(--surface-sunken); color: var(--ink-soft); }
+
+/* ── List items ─────────────────────────────────────────────────────────── */
+.svc-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+.svc-info { flex: 1; min-width: 0; }
+.svc-name { font-weight: 600; margin-bottom: 2px; }
+.svc-address { color: var(--ink-soft); font-size: 0.82rem; }
+
+.svc-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+.svc-distance {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-ink);
+  white-space: nowrap;
+}
+
+.svc-directions-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 13px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.svc-directions-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
