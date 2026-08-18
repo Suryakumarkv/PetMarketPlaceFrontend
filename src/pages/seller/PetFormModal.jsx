@@ -136,7 +136,7 @@ export default function PetFormModal({ pet, onClose, onSaved }) {
             <input required value={form.breed} onChange={(e) => set("breed", e.target.value)} />
           </div>
           <div className="field">
-            <label>Age (years)</label>
+            <label>Age (months)</label>
             <input type="number" min="0" required value={form.age} onChange={(e) => set("age", e.target.value)} />
           </div>
         </div>

@@ -179,7 +179,7 @@ export default function PetDetail() {
             <div className="pd-facts">
               <div className="pd-fact">
                 <div className="pd-fact-label">Age</div>
-                <div className="pd-fact-value">{pet.age} {pet.age === 1 ? "year" : "years"}</div>
+                <div className="pd-fact-value">{pet.age} {pet.age === 1 ? "month" : "months"}</div>
               </div>
               <div className="pd-fact">
                 <div className="pd-fact-label">Vaccinated</div>

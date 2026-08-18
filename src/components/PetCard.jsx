@@ -28,7 +28,7 @@ export default function PetCard({ pet }) {
           <span className="pet-card-price">₹{Number(pet.price).toLocaleString("en-IN")}</span>
         </div>
         <p className="pet-card-meta">
-          {pet.breed} · {pet.age} {pet.age === 1 ? "yr" : "yrs"}
+          {pet.breed} · {pet.age} {pet.age === 1 ? "mo" : "mos"}
         </p>
         <div className="row pet-card-footer">
           <span className="pet-card-seller">{pet.sellerName || "Unknown seller"}</span>
