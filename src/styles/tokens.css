@@ -86,9 +86,9 @@ img { max-width: 100%; display: block; }
 
 /* Layout helpers */
 .container {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 var(--space-5);
+  width: 100%;
+  padding: 0 var(--space-6);
+  box-sizing: border-box;
 }
 
 .stack { display: flex; flex-direction: column; }
@@ -202,4 +202,8 @@ img { max-width: 100%; display: block; }
 @media (max-width: 720px) {
   .container { padding: 0 var(--space-4); }
   h1 { font-size: 1.6rem; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 var(--space-3); }
 }
