@@ -37,9 +37,7 @@ export default function PetFormModal({ pet, onClose, onSaved }) {
     setForm((f) => ({ ...f, [key]: value }));
   }
 
-  // On new listing only: auto-detect GPS and reverse-geocode to pre-fill location
-  useEffect(() => {
-    if (editing) return;                          // don't overwrite on edit
+  async function fetchMyLocation() {
     if (!navigator.geolocation) return;
     setLocating(true);
     navigator.geolocation.getCurrentPosition(
@@ -75,6 +73,11 @@ export default function PetFormModal({ pet, onClose, onSaved }) {
       () => setLocating(false),
       { timeout: 8000 }
     );
+  }
+
+  // On new listing only: auto-detect GPS to pre-fill location
+  useEffect(() => {
+    if (!editing) fetchMyLocation();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   async function handleSubmit(e) {
@@ -158,14 +161,28 @@ export default function PetFormModal({ pet, onClose, onSaved }) {
               </span>
             )}
           </label>
-          <LocationAutocomplete
-            value={form.locationDescription}
-            onChange={(label, lat, lon) => {
-              set("locationDescription", label);
-              set("latitude", lat ?? null);
-              set("longitude", lon ?? null);
-            }}
-          />
+          <div style={{ display: "flex", gap: "var(--space-2)", alignItems: "flex-start" }}>
+            <div style={{ flex: 1 }}>
+              <LocationAutocomplete
+                value={form.locationDescription}
+                onChange={(label, lat, lon) => {
+                  set("locationDescription", label);
+                  set("latitude", lat ?? null);
+                  set("longitude", lon ?? null);
+                }}
+              />
+            </div>
+            <button
+              type="button"
+              className="btn btn-ghost btn-sm"
+              onClick={fetchMyLocation}
+              disabled={locating}
+              title="Use my GPS location"
+              style={{ whiteSpace: "nowrap", flexShrink: 0 }}
+            >
+              {locating ? "Detecting…" : "📍 Fetch my location"}
+            </button>
+          </div>
           {form.latitude && form.longitude && (
             <div style={{ marginTop: "var(--space-2)" }}>
               <PetMap lat={form.latitude} lon={form.longitude} label={form.locationDescription || "Selected location"} />

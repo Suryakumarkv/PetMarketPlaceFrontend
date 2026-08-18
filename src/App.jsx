@@ -18,6 +18,7 @@ export default function App() {
   return (
     <>
       <Navbar />
+      <main className="page-body">
       <Routes>
         <Route path="/" element={<Navigate to="/browse" replace />} />
         <Route path="/browse" element={<Browse />} />
@@ -41,6 +42,7 @@ export default function App() {
           <ProtectedRoute><Profile /></ProtectedRoute>
         } />
       </Routes>
+      </main>
     </>
   );
 }

@@ -27,7 +27,7 @@ export default function Navbar() {
 
   const links = [
     ...(user
-      ? [{ to: user.role === "Seller" ? "/dashboard/seller" : "/dashboard/buyer", label: "Dashboard" }]
+      ? [{ to: user.role === "Seller" ? "/dashboard/seller" : "/dashboard/buyer", label: user.role === "Seller" ? "My Listings" : "My Pets" }]
       : []),
     { to: "/browse", label: "Browse" },
     { to: "/services", label: "Services" },

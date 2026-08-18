@@ -20,6 +20,8 @@ export default function SellerDashboard() {
   const [editingPet, setEditingPet] = useState(null);
   const [adoptingPet, setAdoptingPet] = useState(null);
   const [vaxPet, setVaxPet] = useState(null);
+  const [deletingId, setDeletingId] = useState(null);
+  const [deleteError, setDeleteError] = useState("");
 
   function load() {
     setLoading(true);
@@ -36,9 +38,17 @@ export default function SellerDashboard() {
   useEffect(load, []);
 
   async function handleDelete(pet) {
-    if (!confirm(`Delete listing for ${pet.name}? This can't be undone.`)) return;
-    await deletePet(pet.id);
-    load();
+    if (!window.confirm(`Delete listing for ${pet.name}? This can't be undone.`)) return;
+    setDeletingId(pet.id);
+    setDeleteError("");
+    try {
+      await deletePet(pet.id);
+      load();
+    } catch {
+      setDeleteError(`Failed to delete "${pet.name}". Please try again.`);
+    } finally {
+      setDeletingId(null);
+    }
   }
 
   return (
@@ -59,6 +69,7 @@ export default function SellerDashboard() {
         <button className="btn btn-primary" onClick={() => setShowForm(true)}>+ New listing</button>
       </div>
 
+      {deleteError && <div className="alert alert-error">{deleteError}</div>}
       {loading ? (
         <Loading label="Loading listings" />
       ) : listings.length === 0 ? (
@@ -90,7 +101,13 @@ export default function SellerDashboard() {
               {(pet.status === "Available" || pet.status === "Pending") && (
                 <button className="btn btn-primary btn-sm" onClick={() => setAdoptingPet(pet)}>Mark adopted</button>
               )}
-              <button className="btn btn-danger btn-sm" onClick={() => handleDelete(pet)}>Delete</button>
+              <button
+                className="btn btn-danger btn-sm"
+                onClick={() => handleDelete(pet)}
+                disabled={deletingId === pet.id}
+              >
+                {deletingId === pet.id ? "Deleting…" : "Delete"}
+              </button>
             </div>
           </div>
         ))

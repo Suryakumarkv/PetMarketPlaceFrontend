@@ -85,6 +85,10 @@ img { max-width: 100%; display: block; }
 }
 
 /* Layout helpers */
+.page-body {
+  padding-top: var(--space-6);
+}
+
 .container {
   width: 100%;
   padding: 0 var(--space-6);

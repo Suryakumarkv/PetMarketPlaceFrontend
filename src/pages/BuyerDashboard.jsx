@@ -47,7 +47,7 @@ export default function BuyerDashboard() {
     <div className="container">
       <div className="dash-head">
         <div>
-          <h1>Your dashboard</h1>
+          <h1>Your Pets</h1>
           <p style={{ color: "var(--ink-soft)" }}>Track your adoptions and offers.</p>
         </div>
       </div>
