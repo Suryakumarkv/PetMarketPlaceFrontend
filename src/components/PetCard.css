@@ -2,6 +2,9 @@
 .pet-card {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
   height: 100%;
   background: var(--surface);
   border: 1px solid var(--line);
@@ -17,16 +20,18 @@
 /* Fixed-ratio image slot — all cards show identical image height */
 .pet-card-image {
   position: relative;
-  aspect-ratio: 1 / 1;
   width: 100%;
+  aspect-ratio: 1 / 1;
   background: var(--surface-sunken);
   flex-shrink: 0;
+  overflow: hidden;
 }
 .pet-card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   display: block;
+  object-fit: cover;
+  object-position: center;
 }
 .pet-card-noimage {
   width: 100%;

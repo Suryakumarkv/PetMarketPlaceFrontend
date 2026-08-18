@@ -228,3 +228,8 @@
   gap: var(--space-4);
   align-items: stretch;
 }
+
+.pet-grid > * {
+  width: 100%;
+  height: 100%;
+}

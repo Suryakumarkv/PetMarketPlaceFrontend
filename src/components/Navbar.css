@@ -10,7 +10,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px var(--space-5);
+  min-height: 86px;
+  padding: 20px var(--space-5);
 }
 .nav-brand {
   display: flex;
@@ -18,20 +19,21 @@
   line-height: 0;
 }
 .nav-brand-logo {
-  height: 44px;
+  height: 56px;
   width: auto;
   display: block;
 }
 .nav-links {
   display: flex;
   gap: var(--space-5);
+  align-items: center;
 }
 .nav-link {
   color: var(--ink-soft);
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 1rem;
   position: relative;
-  padding: 4px 0;
+  padding: 8px 0;
 }
 .nav-link.active { color: var(--ink); }
 .nav-link.active::after {
@@ -42,7 +44,7 @@
   background: var(--accent);
 }
 .nav-actions { display: flex; align-items: center; gap: var(--space-3); }
-.nav-user { font-weight: 600; font-size: 0.88rem; color: var(--ink); }
+.nav-user { font-weight: 700; font-size: 0.96rem; color: var(--ink); }
 .nav-badge {
   background: var(--rose);
   color: #fff;
