@@ -121,7 +121,7 @@ export default function Browse() {
   });
 
   return (
-    <div className="browse-layout container">
+    <div className="browse-layout">
 
       {/* ── Filters sidebar ─────────────────────────────── */}
       <aside className="filters-panel">

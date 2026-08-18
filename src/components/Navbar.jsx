@@ -26,14 +26,14 @@ export default function Navbar() {
   }, [user?.id]);
 
   const links = [
+    ...(user
+      ? [{ to: user.role === "Seller" ? "/dashboard/seller" : "/dashboard/buyer", label: "Dashboard" }]
+      : []),
     { to: "/browse", label: "Browse" },
     { to: "/services", label: "Services" },
     { to: "/about", label: "About" },
     { to: "/contact", label: "Contact" },
     ...(user ? [{ to: "/messages", label: "Messages", badge: unread }] : []),
-    ...(user
-      ? [{ to: user.role === "Seller" ? "/dashboard/seller" : "/dashboard/buyer", label: "Dashboard" }]
-      : []),
   ];
 
   return (
