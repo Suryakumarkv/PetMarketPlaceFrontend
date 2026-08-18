@@ -17,7 +17,7 @@
 /* Fixed-ratio image slot — all cards show identical image height */
 .pet-card-image {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   width: 100%;
   background: var(--surface-sunken);
   flex-shrink: 0;
