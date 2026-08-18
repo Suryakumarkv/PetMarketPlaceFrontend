@@ -26,11 +26,11 @@ export default function Navbar() {
   }, [user?.id]);
 
   const links = [
+    { to: "/browse", label: "Browse" },
+    { to: "/services", label: "Services" },
     ...(user
       ? [{ to: user.role === "Seller" ? "/dashboard/seller" : "/dashboard/buyer", label: user.role === "Seller" ? "My Listings" : "My Pets" }]
       : []),
-    { to: "/browse", label: "Browse" },
-    { to: "/services", label: "Services" },
     { to: "/about", label: "About" },
     { to: "/contact", label: "Contact" },
     ...(user ? [{ to: "/messages", label: "Messages", badge: unread }] : []),
